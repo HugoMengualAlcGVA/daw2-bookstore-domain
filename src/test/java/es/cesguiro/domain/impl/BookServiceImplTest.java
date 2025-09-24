@@ -181,7 +181,7 @@ class BookServiceImplTest {
 
         // Assert
         assertAll(
-                () -> assertNull(result)
+                () -> assertNull(result, "Result should be Null")
         );
 
         // Verify interaction with mock

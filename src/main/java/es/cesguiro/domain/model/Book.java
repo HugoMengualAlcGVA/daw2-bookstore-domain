@@ -21,6 +21,7 @@ public class Book {
     private List<Author> authors;
 
     public Book(
+            String id,
             String isbn,
             String titleEs,
             String titleEn,
@@ -33,6 +34,11 @@ public class Book {
             Publisher publisher,
             List<Author> authors
     ) {
+        if(isbn == null || isbn.isBlank()){
+            //throw new ValidationException("Isbn is blank");
+        }if(!isbn.matches("\\d{13}")){
+            //throw new ValExceptionException("Isbn must be 13 digits");
+        }
         this.isbn = isbn;
         this.titleEs = titleEs;
         this.titleEn = titleEn;
@@ -51,56 +57,28 @@ public class Book {
         return isbn;
     }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
     public String getTitleEs() {
         return titleEs;
-    }
-
-    public void setTitleEs(String titleEs) {
-        this.titleEs= titleEs;
     }
 
     public String getTitleEn() {
         return titleEn;
     }
 
-    public void setTitleEn(String titleEn) {
-        this.titleEn = titleEn;
-    }
-
     public String getSynopsisEs() {
         return synopsisEs;
-    }
-
-    public void setSynopsisEs(String synopsisEs) {
-        this.synopsisEs = synopsisEs;
     }
 
     public String getSynopsisEn() {
         return synopsisEn;
     }
 
-    public void setSynopsisEn(String synopsisEn) {
-        this.synopsisEn = synopsisEn;
-    }
-
     public BigDecimal getBasePrice() {
         return basePrice;
     }
 
-    public void setBasePrice(BigDecimal basePrice) {
-        this.basePrice = basePrice;
-    }
-
     public double getDiscountPercentage() {
         return discountPercentage;
-    }
-
-    public void setDiscountPercentage(double discountPercentage) {
-        this.discountPercentage = discountPercentage;
     }
 
     public BigDecimal getPrice() {
@@ -111,16 +89,8 @@ public class Book {
         return cover;
     }
 
-    public void setCover(String cover) {
-        this.cover = cover;
-    }
-
     public LocalDate getPublicationDate() {
         return publicationDate;
-    }
-
-    public void setPublicationDate(LocalDate publicationDate) {
-        this.publicationDate = publicationDate;
     }
 
     public BigDecimal calculateFinalPrice() {
