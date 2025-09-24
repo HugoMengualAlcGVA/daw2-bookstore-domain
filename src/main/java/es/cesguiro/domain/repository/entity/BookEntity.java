@@ -3,7 +3,6 @@ package es.cesguiro.domain.repository.entity;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 public record BookEntity(
         String isbn,
@@ -15,7 +14,7 @@ public record BookEntity(
         double discountPercentage,
         String cover,
         LocalDate publicationDate,
-        Optional<PublisherEntity> publisher,
-        Optional<List<AuthorEntity>> authors
+        PublisherEntity publisher,
+        List<AuthorEntity> authors
 ) {
 }
